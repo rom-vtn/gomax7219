@@ -1,4 +1,4 @@
-module github.com/rom-vtn/max7219
+module github.com/rom-vtn/gomax7219
 
 go 1.22.4
 
