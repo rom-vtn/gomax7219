@@ -22,3 +22,4 @@ func NewRawGridFromPattern(pattern string) StaticGrid {
 const TramRefString string = " XXXX   \n XXXXX  \nXXX  X X\nXXX  XX \nXXXXXX X\n XX  X  \n XX  X  \n XXXXX  \n XX  X  \n XX  X  \nXXXXXX X\nXXX  XX \nXXX  X X\n XXXXX  \n XXXX   \n X      "
 const TrainRefString string = " XXXXX  \n XX  X  \n XX  X  \n XXXXX  \nXXX  XX \nXXX  X X\n XXXXX X\nXXX  X  \nXXX X   \n XXX    \n XX     "
 const ClockRefString string = "  XXXXX \n X     X\n X     X\n X  XXXX\n X X   X\n XX    X\n  XXXXX "
+const HeadphonesRefString string = " XXX    \n XXXXXXX\n       X\n       X\n       X\n       X\n XXXXXXX\n XXX    "
