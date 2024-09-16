@@ -37,16 +37,16 @@ func (sg sequenceGrid) GetWidth() uint {
 	return sg.width
 }
 func (sg sequenceGrid) Render(frame uint) StaticGrid {
-	frame = frame % sg.totalFrames
+	signedFrame := int(frame % sg.totalFrames)
 	for i, duration := range sg.frameDurations {
-		//keep going until we hit the frame
-		frame -= duration
-		if frame > 0 {
+		//subtract and keep going until we hit the frame
+		signedFrame -= int(duration)
+		if signedFrame > 0 {
 			continue
 		}
-		frame += duration //put into positive again
-		grid := sg.contents[i].Render(frame).padTo(sg.width)
+		signedFrame += int(duration)
+		grid := sg.contents[i].Render(uint(signedFrame)).padTo(sg.width)
 		return grid
 	}
-	return make(StaticGrid, sg.width) //should never happen
+	panic(errors.New("uh oh, this isn't really expected")) //should never happen
 }
