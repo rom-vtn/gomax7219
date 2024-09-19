@@ -5,7 +5,7 @@ type repeatGrid struct {
 	repeatCount  uint
 }
 
-// returns a Renderer which behaved identically to r, but with an extended frame count to repeat it the given amount of times
+// NewRepeatGrid returns a Renderer which behaved identically to r, but with an extended frame count to repeat it the given amount of times
 func NewRepeatGrid(r Renderer, repeatCount uint) Renderer {
 	return &repeatGrid{
 		innerContent: r,

@@ -7,6 +7,7 @@ import (
 	"github.com/fulr/spidev"
 )
 
+// an SpiScreen is a physical SPI device (hopefully) connected to a max7219 array.
 type SpiScreen struct {
 	device         *spidev.SPIDevice
 	cascadeCount   uint
@@ -16,10 +17,12 @@ type SpiScreen struct {
 	flipVertical   bool
 }
 
+// close the spi screen
 func (ss *SpiScreen) Close() {
 	ss.device.Close()
 }
 
+// NewDeviceAndOpen opens the SPI interface at the given bus/device and sets config parameters, then sends init signals to the screen to prepare it to display
 func NewDeviceAndOpen(spibus, spidevice uint, cascadeCount uint, brightness uint, rotateCount uint, flipHorizontal, flipVertical bool) (*SpiScreen, error) {
 	devstr := fmt.Sprintf("/dev/spidev%d.%d", spibus, spidevice)
 	spi, err := spidev.NewSPIDevice(devstr)
@@ -178,6 +181,7 @@ func (sg StaticGrid) getMessageLines(rotateCount uint, flipHorizontal bool, flip
 	return messageLines
 }
 
+// Draw draws the given Renderer on the SpiScreen with the given delay between each frame
 func (ss *SpiScreen) Draw(r Renderer, delay time.Duration) error {
 	for i := range r.GetFrameCount() {
 		frame := r.Render(i)
@@ -190,6 +194,7 @@ func (ss *SpiScreen) Draw(r Renderer, delay time.Duration) error {
 	return nil
 }
 
+// clears the display
 func (ss *SpiScreen) Clear() error {
 	empty := make(StaticGrid, ss.cascadeCount*8)
 	return empty.drawTo(ss)

@@ -9,6 +9,7 @@ type sequenceGrid struct {
 	width          uint
 }
 
+// NewSequenceGrid returns a Renderer that displays the given Renderers for the given frame durations.
 func NewSequenceGrid(contents []Renderer, frameDurations []uint) (Renderer, error) {
 	if len(contents) != len(frameDurations) {
 		return nil, errors.New("different amount of inner renderers and frame durations")

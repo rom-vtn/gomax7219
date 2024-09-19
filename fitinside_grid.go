@@ -1,6 +1,6 @@
 package gomax7219
 
-// returns a Renderer that shows r's content while ensuring it fits in the given size, padding (and centering) if too small and scrolling if too large
+// NewFitInsideGrid returns a Renderer that shows r's content while ensuring it fits in the given size, padding (and centering) if too small and scrolling if too large
 func NewFitInsideGrid(r Renderer, fitToSize uint) Renderer {
 	widthOvershoot := int(fitToSize) - int(r.GetWidth())
 	if widthOvershoot < 0 { //if too big, scroll

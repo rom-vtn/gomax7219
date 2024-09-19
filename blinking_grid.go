@@ -6,7 +6,7 @@ type blinkingGrid struct {
 	totalFrames   uint
 }
 
-// returns a Renderer which will show r for visibleFrames frames, and then show a blank grid until totalFrames
+// NewBlinkingGrid returns a Renderer which will show r for visibleFrames frames, and then show a blank grid until totalFrames
 func NewBlinkingGrid(r Renderer, visibleFrames, totalFrames uint) Renderer {
 	return blinkingGrid{
 		innerContent:  r,

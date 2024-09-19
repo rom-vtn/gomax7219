@@ -6,7 +6,7 @@ type scrollingGrid struct {
 	frameCount   uint
 }
 
-// returns a Renderer which scrolls the content of r on the given width
+// NewScrollingGrid returns a Renderer which scrolls the content of r on the given width
 func NewScrollingGrid(r Renderer, width uint) Renderer {
 	frameCount := width + r.GetWidth() + 1 //scroll in, content, scroll out (fully, hence the +1)
 	return scrollingGrid{

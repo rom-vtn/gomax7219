@@ -1,6 +1,6 @@
 package gomax7219
 
-// renders the given code points (byte per byte) using the given code page
+// NewBytesTextRender renders the given code points (byte per byte) using the given code page
 func NewBytesTextRender(codePage [][]byte, codePoints []byte) StaticGrid {
 	var render StaticGrid
 	for _, codePoint := range codePoints {
@@ -9,7 +9,7 @@ func NewBytesTextRender(codePage [][]byte, codePoints []byte) StaticGrid {
 	return render
 }
 
-// renders the given string (converting it to runes, then to bytes) using the given code page
+// NewStringTextRender renders the given string (converting it to runes, then to bytes) using the given code page
 func NewStringTextRender(codePage [][]byte, content string) StaticGrid {
 	//convert runes to bytes one by one
 	var asBytes []byte

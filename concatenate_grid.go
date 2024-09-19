@@ -7,7 +7,7 @@ type concatenatedGrid struct {
 	frameCount uint
 }
 
-// returns a Renderer which will concatenate the given Renderers (width = sum of widths, frame count = maximum frame count given)
+// NewConcatenateGrid returns a Renderer which will concatenate the given Renderers (width = sum of widths, frame count = maximum frame count given)
 func NewConcatenateGrid(innerGrids []Renderer) Renderer {
 	var width uint
 	var frameCount uint

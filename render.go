@@ -5,6 +5,7 @@ import (
 	"slices"
 )
 
+// a Renderer is "something that can be displayed", consisting of 1 or more frames and a given width
 type Renderer interface {
 	Render(frame uint) StaticGrid //renders on a given frame
 	GetFrameCount() uint          //gives the total number of frames
