@@ -3,8 +3,9 @@
 This is a project I've been working on to spice up the use of MAX7219 displays on a Raspberry Pi SPI interface and have near full control over what gets displayed without having to spend too much time tinkering with the low level SPI interface.
 
 # Inspiration
-- https://github.com/d2r2/go-max7219 (most of the SPI  comes from there)
+- https://github.com/d2r2/go-max7219 (most of the inspiration comes from there)
 - https://github.com/rm-hull/luma.core/discussions/226 (Atari font with diacritics)
+- https://github.com/fulr/spidev (for the SPI interface)
 
 # Sample usage
 This should display a clock with the system time.

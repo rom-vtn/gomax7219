@@ -1,6 +1,6 @@
 package gomax7219
 
-// ATARI_FONT taken from https://github.com/rm-hull/luma.core/discussions/226
+// ATARI_FONT taken and adapted from https://github.com/rm-hull/luma.core/discussions/226
 
 var ATARI_FONT = [][]byte{
 	{},                             //
