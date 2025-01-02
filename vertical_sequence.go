@@ -23,7 +23,7 @@ func NewVerticalSequenceGrid(contents []Renderer, frameDurations []uint) (Render
 		width = max(width, contents[i].GetWidth())
 		totalFrames += frameDurations[i]
 	}
-	totalFrames += uint(len(contents)-1) * 8
+	totalFrames += uint(len(contents)) * 8
 	return verticalSequenceGrid{
 		contents:       contents,
 		frameDurations: frameDurations,
