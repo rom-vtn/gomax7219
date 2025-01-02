@@ -48,7 +48,7 @@ func (sg verticalSequenceGrid) Render(frame uint) StaticGrid {
 		}
 		if signedFrame > -8 { //if in between renderers, change between last frame of current and 1st frame of next
 			prevGrid := sg.contents[i].Render(sg.contents[i].GetFrameCount() - 1).padTo(sg.width)
-			nextGrid := sg.contents[i+1].Render(0).padTo(sg.width)
+			nextGrid := sg.contents[(i+1)%len(sg.contents)].Render(0).padTo(sg.width)
 			var result []byte
 			for pos := range sg.width {
 				//note: LSB is up and MSB is down, and we're scrolling downwards
