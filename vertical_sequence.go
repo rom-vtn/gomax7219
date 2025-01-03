@@ -52,7 +52,7 @@ func (sg verticalSequenceGrid) Render(frame uint) StaticGrid {
 			var result []byte
 			for pos := range sg.width {
 				//note: LSB is up and MSB is down, and we're scrolling downwards
-				currentByte := (int(prevGrid[pos]) + int(nextGrid[pos])*256) >> (-signedFrame)
+				currentByte := (int(prevGrid[pos])*256 + int(nextGrid[pos])) >> (-signedFrame / 2)
 				result = append(result, byte(currentByte))
 			}
 			return StaticGrid(result)
