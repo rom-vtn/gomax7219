@@ -60,7 +60,7 @@ func (sg verticalSequenceGrid) Render(frame uint) StaticGrid {
 			return StaticGrid(result)
 		}
 		//if 100% inside current renderer
-		signedFrame += int(duration)
+		signedFrame += int(duration) + VERTICAL_TRANSITION_FRAMECOUNT
 		grid := sg.contents[i].Render(uint(signedFrame)).padTo(sg.width)
 		return grid
 	}
