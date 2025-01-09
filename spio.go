@@ -41,8 +41,7 @@ func NewDeviceAndOpen(spibus, spidevice uint, cascadeCount uint, brightness uint
 	encodingMessages := newControlMessageLine(MAX7219_REG_DECODEMODE, 0x00, cascadeCount) //0x00 = raw encoding, no 7 segment
 	displayTestMessages := newControlMessageLine(MAX7219_REG_DISPLAYTEST, 0x00, cascadeCount)
 	shutdownMessages := newControlMessageLine(MAX7219_REG_SHUTDOWN, 0x01, cascadeCount) //0x01 = no shutdown
-	// brightnessMessages := newControlMessageLine(MAX7219_REG_INTENSITY, byte(brightness*16), cascadeCount)
-	brightnessMessages := newControlMessageLine(MAX7219_REG_INTENSITY, 0xFF, cascadeCount) //debugus
+	brightnessMessages := newControlMessageLine(MAX7219_REG_INTENSITY, byte(brightness), cascadeCount)
 	messageLines := []messageLine{scanLimitMessages, encodingMessages, displayTestMessages, shutdownMessages, brightnessMessages}
 	//send instructions
 	for _, ml := range messageLines {
